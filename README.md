@@ -46,7 +46,7 @@ on your way service
     - Order 일시, 배송완료 예상 일시, 배송완료 일시, 확정 일시
     - 물품 정보, 비용, 배송자 아이디(노출이름)
     - **Order 선택한 Deliverer가 있으면 'N'표시, 여러명일 경우 리스트로 표시, 선택버튼 제공**
-```  
+```
 6. **Deliver**
 ```
   6.1 Order Search
