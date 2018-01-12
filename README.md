@@ -7,8 +7,8 @@ on your way service
 3. 회원 가입
   * (Order)OAuth and then Phone No. Certification to upgrade grade
   * (Order)Email Registeration and then Phone No. Certification to upgrade grade
-  * (Deliver) OAuth or Email Registeration. Phone No. Certification. ID Card Photo and Account No..  more info.
-  * 노출이름 등록
+  * (Deliver) OAuth or Email Registeration. Phone No. Certification. ID Card Photo and Account No.  more info
+  + 노출이름 등록
 4. 홈화면
   - 공지내용
   - Order Request/Deliver Search 메뉴
