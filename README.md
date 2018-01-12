@@ -76,10 +76,13 @@ on your way service
       . 사진 업로딩
 ```
 7. To Do More
-> Deliverer 이동 스케쥴 사전 등록
-> Deliverer 할인 비율 등록
-
+```
+  > Deliverer 이동 스케쥴 사전 등록
+  > Deliverer 할인 비율 등록
+```
 8. for Safe Deliver
-> 보험가입
-> Deliver 보증금 제도
->> 보증금액에 맞추어 고객이 등록한 배송물품 가격 한도내 배송물품 노출(보증금은 향후 100% 환불)
+```
+  > 보험가입
+  > Deliver 보증금 제도
+    >> 보증금액에 맞추어 고객이 등록한 배송물품 가격 한도내 배송물품 노출(보증금은 향후 100% 환불)
+```
