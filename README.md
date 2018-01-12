@@ -5,7 +5,7 @@ on your way service
 1. 앱실행
 2. 로그인 화면
 3. 회원 가입
-3.1.
+#####3.1.
   1. (Order)OAuth and then Phone No. Certification to upgrade grade
   2. (Order)Email Registeration and then Phone No. Certification to upgrade grade
   3. (Deliver) OAuth or Email Registeration. Phone No. Certification. ID Card Photo and Account No.  more info
