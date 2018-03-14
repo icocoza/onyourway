@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "711848409637",
+    "firebase_url": "https://pickydrop-2018.firebaseio.com",
+    "project_id": "pickydrop-2018",
+    "storage_bucket": "pickydrop-2018.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711848409637:android:6c0be0d3800d892b",
+        "android_client_info": {
+          "package_name": "com.pickydrop.oyw"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "711848409637-nm9a8ig18a9264elu03ak7187pke0le2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwvmrsq063L8H69fq3bAphswFHZjtmh2w"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
