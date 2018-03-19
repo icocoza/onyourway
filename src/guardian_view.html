@@ -1,0 +1,102 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Guardian View</title>
+        <script src="https://api2.sktelecom.com/tmap/js?version=1&format=javascript&appKey=1a6febb2-91c0-4025-88e8-b88306fe130d"></script>
+        <script type="text/javascript">
+        
+        	// for tmap
+			var markerLayer;
+			var map;
+			function initTmap(){
+				map = new Tmap.Map({
+							div:'map_div',
+							width : "934px",
+							height : "452px",
+				});
+
+				markerLayer = new Tmap.Layer.Markers();//마커 레이어 생성
+				map.addLayer(markerLayer);//map에 마커 레이어 추가
+				// moveTaxi(126.984895, 37.566369);
+			}
+
+			function moveTaxi(lon, lat){
+				var lonlat = new Tmap.LonLat(lon, lat).transform("EPSG:4326", "EPSG:3857");//좌표 설정
+				var size = new Tmap.Size(30, 30);//아이콘 크기 설정
+				var offset = new Tmap.Pixel(-(size.w / 2), -(size.h));//아이콘 중심점 설정
+				var icon = new Tmap.Icon('bono.png',size, offset);//마커 아이콘 설정
+
+				marker = new Tmap.Marker(lonlat, icon);//마커 생성
+				markerLayer.addMarker(marker);//레이어에 마커 추가
+				map.setCenter(new Tmap.LonLat(lon, lat).transform("EPSG:4326", "EPSG:3857"));
+			}
+
+			
+			// for channel server
+			var chanelSocket = new WebSocket("ws://127.0.0.1:8081/wss");
+			chanelSocket.onopen = function (event) {
+				getTempUserId();
+			};
+
+			function getTempUserId() {
+				var shorturlid = getParameterByName('shorturlid');
+				console.log("shorturlid: " + shorturlid);
+				var msg = {
+					cmd: "anonymous_getid",
+					code: "1234",
+					shorturlid: shorturlid
+				}
+				chanelSocket.send(JSON.stringify(msg));
+			}
+			
+			function anonymousSignIn(userid) {
+				var msg = {
+					cmd: "anonymous_signin",
+					code: "1234",
+					userid: userid
+				}
+				console.log(msg);
+				chanelSocket.send(JSON.stringify(msg));
+			}
+
+			function enterAllocCh(driverid) {
+				var msg = {
+					cmd: "enter_allocch",
+					code: "4321",
+					driverid: driverid
+				}
+				console.log(msg);
+				chanelSocket.send(JSON.stringify(msg));
+			}
+
+			chanelSocket.onmessage = function (event) {
+				var msg = JSON.parse(event.data);
+				console.log(msg);
+				if(msg.cmd == 'anonymous_getid') {
+					if(msg.userid != undefined)
+						anonymousSignIn(msg.userid);
+				}
+				if(msg.cmd == 'anonymous_signin') {
+					if(msg.driverid != undefined)
+						enterAllocCh(msg.driverid);
+				}
+				if(msg.cmd == 'ongpsinfo')
+					moveTaxi(msg.lon, msg.lat);
+			}
+
+			function getParameterByName(name, url) {
+			    if (!url) url = window.location.href;
+			    name = name.replace(/[\[\]]/g, "\\$&");
+			    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+			        results = regex.exec(url);
+			    if (!results) return null;
+			    if (!results[2]) return '';
+			    return decodeURIComponent(results[2].replace(/\+/g, " "));
+			}
+		</script>
+    </head>
+    <body onload="initTmap()">
+        <div id="map_div">
+        </div>
+    </body>
+</html>
