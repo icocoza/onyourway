@@ -1,5 +1,5 @@
 # onyourway
-on your way service
+배송 주문 예약 서비스 
 
 # Order & Deliver
 1. 앱실행
